@@ -1,4 +1,8 @@
 public class TennisGame {
-    public Player playerOne = new Player();
-    public Player playerTwo = new Player();
+    public Player playerOne;
+    public Player playerTwo;
+    TennisGame(){
+        playerOne = new Player();
+        playerTwo = new Player();
+    }
 }

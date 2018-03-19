@@ -43,5 +43,13 @@ public class TennisGameTest {
         assertEquals(40,newScore);
     }
 
+    @Test
+    public void PlayerWithScoreFortyWinsPointTest(){
+        game.playerOne.winPoint();
+        game.playerOne.winPoint();
+        game.playerOne.winPoint();
+        game.playerOne.winPoint();
+        assert(game.playerOne.isWinGame());
+    }
 
 }
