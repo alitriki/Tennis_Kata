@@ -1,7 +1,9 @@
 public class TennisGame {
+
     public Player playerOne;
     public Player playerTwo;
     private boolean deuce;
+
     TennisGame(){
         playerOne = new Player();
         playerTwo = new Player();
@@ -45,11 +47,13 @@ public class TennisGame {
         }
     }
 
-    private void winGame(Player player) {
+    public void winGame(Player player) {
         player.setWinGame(true);
         // reset scores to zero
         player.setScore(0);
         getOtherPlayer(player).setScore(0);
+        // change set scores
+        player.setSetScore(1);
     }
 
     public boolean isDeuce() {
