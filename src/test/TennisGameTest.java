@@ -19,4 +19,11 @@ public class TennisGameTest {
         assertEquals(0,value2);
     }
 
+    @Test
+    public void PlayerWithScoreZeroWinsPointTest(){
+        game.playerOne.winPoint();
+        int newScore = game.playerOne.getScore();
+        assertEquals(15,newScore);
+    }
+
 }
