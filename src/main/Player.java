@@ -1,10 +1,12 @@
 public class Player {
     private int score;
     private boolean winGame;
+    private boolean advantage;
 
     Player() {
         this.score = 0;
         winGame = false;
+        advantage = false;
     }
 
     public int getScore() {
@@ -23,4 +25,11 @@ public class Player {
         this.winGame = winGame;
     }
 
+    public boolean getAdvantage() {
+        return advantage;
+    }
+
+    public void setAdvantage(boolean advantage) {
+        this.advantage = advantage;
+    }
 }
