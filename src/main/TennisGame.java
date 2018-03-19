@@ -25,8 +25,11 @@ public class TennisGame {
                 break;
             case 40:
                 // if the game is DEUCE then by winning a point the player has the ADVANTAGE
-                if(isDeuce())
+                if(isDeuce()){
                     player.setAdvantage(true);
+                    setDeuce(false);
+                }
+                // if the player has the ADVANTAGE or if the other player's score is under 40 then by scoring he wins the game
                 else
                     winGame(player);
                 break;

@@ -1,7 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -24,10 +23,20 @@ public class TennisGameDeuceTest {
 
     @Test
     public void ScoreIsDeucePlayerWhoWinsPointTakesAdvantageTest(){
-        assertTrue(game.isDeuce());
         game.winPoint(game.playerOne);
+        // player one should now have the advantage
         assertTrue(game.playerOne.getAdvantage());
         assertFalse(game.playerTwo.getAdvantage());
+    }
+
+    @Test
+    public void PlayerWhoHasAdvantageWinsPointAndWinsGameTest(){
+        game.winPoint(game.playerOne);
+        // player one has the advantage
+        game.winPoint(game.playerOne);
+        // player one should now win the game
+        assertTrue(game.playerOne.isWinGame());
+        assertFalse(game.playerTwo.isWinGame());
     }
 
 }
