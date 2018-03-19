@@ -37,14 +37,19 @@ public class TennisGame {
                     setDeuce(false);
                 }
                 // if the player has the ADVANTAGE or if the other player's score is under 40 then by scoring he wins the game
-                else
+                else{
                     winGame(player);
+                    player.setAdvantage(false);
+                }
                 break;
         }
     }
 
     private void winGame(Player player) {
         player.setWinGame(true);
+        // reset scores to zero
+        player.setScore(0);
+        getOtherPlayer(player).setScore(0);
     }
 
     public boolean isDeuce() {
