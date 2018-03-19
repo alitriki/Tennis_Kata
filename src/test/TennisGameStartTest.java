@@ -29,27 +29,27 @@ public class TennisGameStartTest {
 
     @Test
     public void PlayerWithScoreFifteenWinsPointTest(){
-        game.winPoint(game.playerOne);
-        game.winPoint(game.playerOne);
+        for(int i=0;i<=1;i++){
+            game.winPoint(game.playerOne);
+        }
         int newScore = game.playerOne.getScore();
         assertEquals(30,newScore);
     }
 
     @Test
     public void PlayerWithScoreThirtyWinsPointTest(){
-        game.winPoint(game.playerOne);
-        game.winPoint(game.playerOne);
-        game.winPoint(game.playerOne);
+        for(int i=0;i<=2;i++){
+            game.winPoint(game.playerOne);
+        }
         int newScore = game.playerOne.getScore();
         assertEquals(40,newScore);
     }
 
     @Test
     public void PlayerWithScoreFortyWinsPointTest(){
-        game.winPoint(game.playerOne);
-        game.winPoint(game.playerOne);
-        game.winPoint(game.playerOne);
-        game.winPoint(game.playerOne);
+        for(int i=0;i<=3;i++){
+            game.winPoint(game.playerOne);
+        }
         assertTrue(game.playerOne.isWinGame());
     }
 

@@ -53,7 +53,9 @@ public class TennisGame {
         player.setScore(0);
         getOtherPlayer(player).setScore(0);
         // change set scores
-        player.setSetScore(1);
+        if(player.getSetScore()<5){
+            player.setSetScore(player.getSetScore()+1);
+        }
     }
 
     public boolean isDeuce() {

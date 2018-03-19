@@ -3,12 +3,14 @@ public class Player {
     private boolean winGame;
     private boolean advantage;
     private int setScore;
+    private boolean winSet;
 
     Player() {
         score = 0;
         winGame = false;
         advantage = false;
         setScore = 0;
+        winSet = false;
     }
 
     public int getScore() {
@@ -43,4 +45,11 @@ public class Player {
         this.setScore = setScore;
     }
 
+    public boolean isWinSet() {
+        return true;
+    }
+
+    public void setWinSet(boolean winSet) {
+        this.winSet = winSet;
+    }
 }
