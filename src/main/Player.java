@@ -14,6 +14,13 @@ public class Player {
     }
 
     public void winPoint() {
-        setScore(15);
+        switch (score){
+            case 0: setScore(15);
+            break;
+            case 15: setScore(30);
+            break;
+            case 30: setScore(40);
+            break;
+        }
     }
 }

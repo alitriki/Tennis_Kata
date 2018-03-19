@@ -26,4 +26,22 @@ public class TennisGameTest {
         assertEquals(15,newScore);
     }
 
+    @Test
+    public void PlayerWithScoreFifteenWinsPointTest(){
+        game.playerOne.winPoint();
+        game.playerOne.winPoint();
+        int newScore = game.playerOne.getScore();
+        assertEquals(30,newScore);
+    }
+
+    @Test
+    public void PlayerWithScoreThirtyWinsPointTest(){
+        game.playerOne.winPoint();
+        game.playerOne.winPoint();
+        game.playerOne.winPoint();
+        int newScore = game.playerOne.getScore();
+        assertEquals(40,newScore);
+    }
+
+
 }
