@@ -39,4 +39,14 @@ public class TennisGameDeuceTest {
         assertFalse(game.playerTwo.isWinGame());
     }
 
+    @Test
+    public void PlayerWhoHasAdvantageLoosesPointScoreIsDeuceTest(){
+        game.winPoint(game.playerTwo);
+        // player two has the advantage
+        game.winPoint(game.playerOne);
+        // player two lost the point, the game should be DEUCE
+        assertTrue(game.isDeuce());
+        assertFalse(game.playerOne.getAdvantage());
+    }
+
 }

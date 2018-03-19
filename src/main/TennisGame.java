@@ -9,6 +9,9 @@ public class TennisGame {
     }
 
     public void winPoint(Player player) {
+        // get the other player so we can use his score later
+        Player otherPlayer = getOtherPlayer(player);
+        // win point has different behavior in regard
         switch (player.getScore()){
             case 0:
                 player.setScore(15);
@@ -19,13 +22,17 @@ public class TennisGame {
             case 30:
                 player.setScore(40);
                 // if the other player's score is forty then by winning a point the game becomes DEUCE
-                Player otherPlayer = getOtherPlayer(player);
                 if(otherPlayer.getScore() == 40)
                     setDeuce(true);
                 break;
             case 40:
+                // if the other player has the advantage than by winning the point the game is DEUCE
+                if(otherPlayer.getAdvantage()){
+                    setDeuce(true);
+                    otherPlayer.setAdvantage(false);
+                }
                 // if the game is DEUCE then by winning a point the player has the ADVANTAGE
-                if(isDeuce()){
+                else if(isDeuce()){
                     player.setAdvantage(true);
                     setDeuce(false);
                 }
