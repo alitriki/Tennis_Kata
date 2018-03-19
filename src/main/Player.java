@@ -11,7 +11,7 @@ public class Player {
         return score;
     }
 
-    private void setScore(int score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
@@ -19,24 +19,8 @@ public class Player {
         return winGame;
     }
 
-    private void setWinGame(boolean winGame) {
+    public void setWinGame(boolean winGame) {
         this.winGame = winGame;
     }
 
-    public void winPoint() {
-        switch (score){
-            case 0: setScore(15);
-            break;
-            case 15: setScore(30);
-            break;
-            case 30: setScore(40);
-            break;
-            case 40: winGame();
-            break;
-        }
-    }
-
-    private void winGame() {
-        winGame = true;
-    }
 }

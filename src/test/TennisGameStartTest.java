@@ -2,8 +2,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class TennisGameTest {
+public class TennisGameStartTest {
     private TennisGame game;
 
     @Before
@@ -21,35 +22,42 @@ public class TennisGameTest {
 
     @Test
     public void PlayerWithScoreZeroWinsPointTest(){
-        game.playerOne.winPoint();
+        game.winPoint(game.playerOne);
         int newScore = game.playerOne.getScore();
         assertEquals(15,newScore);
     }
 
     @Test
     public void PlayerWithScoreFifteenWinsPointTest(){
-        game.playerOne.winPoint();
-        game.playerOne.winPoint();
+        game.winPoint(game.playerOne);
+        game.winPoint(game.playerOne);
         int newScore = game.playerOne.getScore();
         assertEquals(30,newScore);
     }
 
     @Test
     public void PlayerWithScoreThirtyWinsPointTest(){
-        game.playerOne.winPoint();
-        game.playerOne.winPoint();
-        game.playerOne.winPoint();
+        game.winPoint(game.playerOne);
+        game.winPoint(game.playerOne);
+        game.winPoint(game.playerOne);
         int newScore = game.playerOne.getScore();
         assertEquals(40,newScore);
     }
 
     @Test
     public void PlayerWithScoreFortyWinsPointTest(){
-        game.playerOne.winPoint();
-        game.playerOne.winPoint();
-        game.playerOne.winPoint();
-        game.playerOne.winPoint();
-        assert(game.playerOne.isWinGame());
+        game.winPoint(game.playerOne);
+        game.winPoint(game.playerOne);
+        game.winPoint(game.playerOne);
+        game.winPoint(game.playerOne);
+        assertTrue(game.playerOne.isWinGame());
     }
 
+    @Test
+    public void getOtherPlayerTest(){
+        Player otherPlayer = game.getOtherPlayer(game.playerOne);
+        assertEquals(game.playerTwo, otherPlayer);
+        otherPlayer = game.getOtherPlayer(game.playerTwo);
+        assertEquals(game.playerOne, otherPlayer);
+    }
 }
