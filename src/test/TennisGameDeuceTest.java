@@ -6,11 +6,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class TennisGameDeuceTest {
-    private TennisGame game;
+    private TennisMatch game;
 
     @Before
     public void createTennisNewGame(){
-        game = new TennisGame();
+        game = new TennisMatch();
         for(int i=0;i<3;i++){
             game.winPoint(game.playerOne);
             game.winPoint(game.playerTwo);
@@ -58,8 +58,8 @@ public class TennisGameDeuceTest {
         // player One has the advantage
         game.winPoint(game.playerOne);
         // player One wins the game, scores should be reset to zero
-        assertEquals(0, game.playerOne.getScore());
-        assertEquals(0, game.playerTwo.getScore());
+        assertEquals(0, game.playerOne.getGameScore());
+        assertEquals(0, game.playerTwo.getGameScore());
     }
 
     @Test

@@ -1,26 +1,28 @@
 public class Player {
-    private int score;
+    private int gameScore;
     private boolean winGame;
     private boolean advantage;
     private int setScore;
     private boolean winSet;
     private boolean winMatch;
+    private int tieBreakScore;
 
     Player() {
-        score = 0;
+        gameScore = 0;
         winGame = false;
         advantage = false;
         setScore = 0;
         winSet = false;
         winMatch = false;
+        tieBreakScore = 0;
     }
 
-    public int getScore() {
-        return score;
+    public int getGameScore() {
+        return gameScore;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setGameScore(int gameScore) {
+        this.gameScore = gameScore;
     }
 
     public boolean isWinGame() {
@@ -61,5 +63,13 @@ public class Player {
 
     public void setWinMatch(boolean winMatch) {
         this.winMatch = winMatch;
+    }
+
+    public int getTieBreakScore() {
+        return tieBreakScore;
+    }
+
+    public void setTieBreakScore(int tieBreakScore) {
+        this.tieBreakScore = tieBreakScore;
     }
 }

@@ -5,17 +5,17 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TennisGameStartTest {
-    private TennisGame game;
+    private TennisMatch game;
 
     @Before
     public void createTennisNewGame(){
-        game = new TennisGame();
+        game = new TennisMatch();
     }
 
     @Test
     public void gameStartsWithScoreOfZeroForEachPlayerTest(){
-        int value1 = game.playerOne.getScore();
-        int value2 = game.playerTwo.getScore();
+        int value1 = game.playerOne.getGameScore();
+        int value2 = game.playerTwo.getGameScore();
         assertEquals(0,value1);
         assertEquals(0,value2);
     }
@@ -23,7 +23,7 @@ public class TennisGameStartTest {
     @Test
     public void PlayerWithScoreZeroWinsPointTest(){
         game.winPoint(game.playerOne);
-        int newScore = game.playerOne.getScore();
+        int newScore = game.playerOne.getGameScore();
         assertEquals(15,newScore);
     }
 
@@ -32,7 +32,7 @@ public class TennisGameStartTest {
         for(int i=0;i<=1;i++){
             game.winPoint(game.playerOne);
         }
-        int newScore = game.playerOne.getScore();
+        int newScore = game.playerOne.getGameScore();
         assertEquals(30,newScore);
     }
 
@@ -41,7 +41,7 @@ public class TennisGameStartTest {
         for(int i=0;i<=2;i++){
             game.winPoint(game.playerOne);
         }
-        int newScore = game.playerOne.getScore();
+        int newScore = game.playerOne.getGameScore();
         assertEquals(40,newScore);
     }
 

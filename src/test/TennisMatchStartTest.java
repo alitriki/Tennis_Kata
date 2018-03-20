@@ -7,11 +7,11 @@ import static org.junit.Assert.assertTrue;
 
 public class TennisMatchStartTest {
 
-    private TennisGame game;
+    private TennisMatch game;
 
     @Before
     public void createTennisNewGame(){
-        game = new TennisGame();
+        game = new TennisMatch();
     }
 
     @Test
@@ -109,17 +109,4 @@ public class TennisMatchStartTest {
         assertTrue(game.playerOne.isWinMatch());
         assertFalse(game.playerTwo.isWinMatch());
     }
-
-    @Test
-    public void TwoPlayersReachSetScoreOfSixTieBreakRuleActivatedTest(){
-        for(int i=0; i<=5; i++){
-            game.winGame(game.playerOne);
-            game.winGame(game.playerTwo);
-        }
-        // the two players reach set score of 6
-        // Tie-Break rule should be activated
-        assertTrue(game.isTieBreak());
-        assertFalse(game.playerTwo.isWinMatch());
-    }
-
 }
