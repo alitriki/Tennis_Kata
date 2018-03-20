@@ -46,7 +46,7 @@ public class Player {
     }
 
     public boolean isWinSet() {
-        return true;
+        return winSet;
     }
 
     public void setWinSet(boolean winSet) {

@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class TennisMatchStartTest {
@@ -37,13 +38,66 @@ public class TennisMatchStartTest {
     }
 
     @Test
-    public void PlayerWithSetScoreFiveWinsGameAndSetTest(){
+    public void PlayerWithSetScoreFiveWinsGameAndSet_OtherPlayerHasSetScoreOfZeroTest(){
         for(int i=0; i<=5; i++){
             game.winGame(game.playerOne);
         }
         /*Player one reaches set score of 6 & player two has set score of 0
         Player one should win the set*/
         assertTrue(game.playerOne.isWinSet());
+    }
+
+    @Test
+    public void PlayerWithSetScoreFiveWinsGameAndSet_OtherPlayerHasSetScoreOfFourTest(){
+        for(int i=0; i<=3; i++){
+            game.winGame(game.playerOne);
+            game.winGame(game.playerTwo);
+        }
+        game.winGame(game.playerOne);
+        game.winGame(game.playerOne);
+        /*Player one reaches set score of 6 & player two has set score of 4
+        Player one should win the set*/
+        assertTrue(game.playerOne.isWinSet());
+    }
+
+    @Test
+    public void PlayerReachesSetScoreSix_OtherPlayerHasSetScoreOfFive_SetNotOverYetTest(){
+        for(int i=0; i<=4; i++){
+            game.winGame(game.playerOne);
+            game.winGame(game.playerTwo);
+        }
+        game.winGame(game.playerOne);
+        /*Player one reaches set score of 6 & player two has set score of 5
+        The set should not be over yet, an other game must be played*/
+        assertFalse(game.playerOne.isWinSet());
+        assertFalse(game.playerTwo.isWinSet());
+    }
+
+    @Test
+    public void PlayerWinsSetWithScoreOfSevenToFiveTest(){
+        for(int i=0; i<=4; i++){
+            game.winGame(game.playerOne);
+            game.winGame(game.playerTwo);
+        }
+        game.winGame(game.playerOne);
+        game.winGame(game.playerOne);
+        /*Player one reaches set score of 7 & player two has set score of 5
+        Player one should win the set*/
+        assertTrue(game.playerOne.isWinSet());
+        assertFalse(game.playerTwo.isWinSet());
+    }
+
+    @Test
+    public void PlayerWinsSetWithScoreOfSevenToSixTest(){
+        for(int i=0; i<=5; i++){
+            game.winGame(game.playerOne);
+            game.winGame(game.playerTwo);
+        }
+        game.winGame(game.playerOne);
+        /*Player one reaches set score of 7 & player two has set score of 6
+        Player one should win the set*/
+        assertTrue(game.playerOne.isWinSet());
+        assertFalse(game.playerTwo.isWinSet());
     }
 
 }

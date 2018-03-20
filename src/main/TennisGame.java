@@ -48,14 +48,29 @@ public class TennisGame {
     }
 
     public void winGame(Player player) {
+        Player otherPlayer = getOtherPlayer(player);
         player.setWinGame(true);
         // reset scores to zero
         player.setScore(0);
-        getOtherPlayer(player).setScore(0);
+        otherPlayer.setScore(0);
         // change set scores
-        if(player.getSetScore()<5){
-            player.setSetScore(player.getSetScore()+1);
+
+        // by winning the game the player's set score increments
+        player.setSetScore(player.getSetScore()+1);
+        switch (player.getSetScore()){
+            case 6:
+                // if the player's score is 6 then
+                // if the other player's score is under 5 he wins the set
+                if(otherPlayer.getSetScore()<=4){
+                    player.setWinSet(true);
+                }
+                break;
+            case 7:
+                // if the player's score is 7 then he wins the set
+                player.setWinSet(true);
+                break;
         }
+
     }
 
     public boolean isDeuce() {
