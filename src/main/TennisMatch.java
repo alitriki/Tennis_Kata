@@ -62,7 +62,7 @@ public class TennisMatch {
         }
     }
 
-    public void winGame(Player player) {
+    private void winGame(Player player) {
         Player otherPlayer = getOtherPlayer(player);
         player.setWinGame(true);
         // reset scores to zero

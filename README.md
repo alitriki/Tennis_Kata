@@ -9,4 +9,6 @@ In this project I created :
 -A TennisMatchDeuce class that tests the different methods of TennisMatch Class if the DEUCE rule is activated
 -A  TennisMatchTieBreak class that tests the different methods of TennisMatch Class if the Tie-Break rule is activated
 
-**PS :** the Player class is not meant to be used directly as it does not contain the logic of the point system. 
+**PS :** the Player class is not meant to be used directly as it does not contain the logic of the point system.
+
+In order to simulate a match, you will need to create an instance of   
