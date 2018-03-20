@@ -4,6 +4,7 @@ public class Player {
     private boolean advantage;
     private int setScore;
     private boolean winSet;
+    private boolean winMatch;
 
     Player() {
         score = 0;
@@ -11,6 +12,7 @@ public class Player {
         advantage = false;
         setScore = 0;
         winSet = false;
+        winMatch = false;
     }
 
     public int getScore() {
@@ -51,5 +53,13 @@ public class Player {
 
     public void setWinSet(boolean winSet) {
         this.winSet = winSet;
+    }
+
+    public boolean isWinMatch() {
+        return winMatch;
+    }
+
+    public void setWinMatch(boolean winMatch) {
+        this.winMatch = winMatch;
     }
 }

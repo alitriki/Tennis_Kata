@@ -100,4 +100,26 @@ public class TennisMatchStartTest {
         assertFalse(game.playerTwo.isWinSet());
     }
 
+    @Test
+    public void PlayerWinsMatchTest(){
+        for(int i=0; i<=5; i++){
+            game.winGame(game.playerOne);
+        }
+        /*Player one reaches set score of 6 he should win the match*/
+        assertTrue(game.playerOne.isWinMatch());
+        assertFalse(game.playerTwo.isWinMatch());
+    }
+
+    @Test
+    public void TwoPlayersReachSetScoreOfSixTieBreakRuleActivatedTest(){
+        for(int i=0; i<=5; i++){
+            game.winGame(game.playerOne);
+            game.winGame(game.playerTwo);
+        }
+        // the two players reach set score of 6
+        // Tie-Break rule should be activated
+        assertTrue(game.isTieBreak());
+        assertFalse(game.playerTwo.isWinMatch());
+    }
+
 }

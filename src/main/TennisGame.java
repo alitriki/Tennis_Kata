@@ -3,11 +3,13 @@ public class TennisGame {
     public Player playerOne;
     public Player playerTwo;
     private boolean deuce;
+    private boolean tieBreak;
 
     TennisGame(){
         playerOne = new Player();
         playerTwo = new Player();
         deuce = false;
+        tieBreak = false;
     }
 
     public void winPoint(Player player) {
@@ -61,16 +63,24 @@ public class TennisGame {
             case 6:
                 // if the player's score is 6 then
                 // if the other player's score is under 5 he wins the set
-                if(otherPlayer.getSetScore()<=4){
-                    player.setWinSet(true);
+                if(otherPlayer.getSetScore() <= 4){
+                    winMatch(player);
+                }else if(otherPlayer.getSetScore() == 6){
+                    setTieBreak(true);
                 }
+
                 break;
             case 7:
                 // if the player's score is 7 then he wins the set
-                player.setWinSet(true);
+                winMatch(player);
                 break;
         }
 
+    }
+
+    private void winMatch(Player player) {
+        player.setWinSet(true);
+        player.setWinMatch(true);
     }
 
     public boolean isDeuce() {
@@ -85,5 +95,13 @@ public class TennisGame {
         if(player.hashCode()== playerOne.hashCode())
             return playerTwo;
         return playerOne;
+    }
+
+    public boolean isTieBreak() {
+        return tieBreak;
+    }
+
+    private void setTieBreak(boolean tieBreak) {
+        this.tieBreak = tieBreak;
     }
 }
